@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>groupId</groupId>
+    <artifactId>MarkDown</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <dependencies>
+
+    <!-- https://mvnrepository.com/artifact/org.json/json -->
+    <dependency>
+        <groupId>org.json</groupId>
+        <artifactId>json</artifactId>
+        <version>20200518</version>
+    </dependency>
+        <dependency>
+            <groupId>org.jboss.bom</groupId>
+            <artifactId>jboss-javaee-6.0-with-tools</artifactId>
+            <version>${version.jboss.bom}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.bom</groupId>
+            <artifactId>jboss-javaee-6.0-with-hibernate</artifactId>
+            <version>${version.jboss.bom}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.wildfly.plugins/wildfly-maven-plugin -->
+        <dependency>
+            <groupId>org.wildfly.plugins</groupId>
+            <artifactId>wildfly-maven-plugin</artifactId>
+            <version>1.2.0.Alpha4</version>
+        </dependency>
+
+
+
+<!-- First declare the APIs we depend on and need for compilation. All
+of them are provided by JBoss AS 7 -->
+
+<!-- Import the CDI API, we use provided scope as the API is included in
+JBoss AS 7 -->
+
+<dependency>
+    <groupId>com.sun.jersey</groupId>
+    <artifactId>jersey-server</artifactId>
+    <version>1.8</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+<dependency>
+    <groupId>com.google.code.gson</groupId>
+    <artifactId>gson</artifactId>
+    <version>2.8.0</version>
+</dependency>
+<!-- Import the Common Annotations API (JSR-250), we use provided scope
+as the API is included in JBoss AS 7 -->
+<dependency>
+    <groupId>org.jboss.spec.javax.annotation</groupId>
+    <artifactId>jboss-annotations-api_1.1_spec</artifactId>
+    <scope>provided</scope>
+</dependency>
+
+<!-- Import the JAX-RS API, we use provided scope as the API is included
+in JBoss AS 7 -->
+<dependency>
+    <groupId>org.jboss.spec.javax.ws.rs</groupId>
+    <artifactId>jboss-jaxrs-api_1.1_spec</artifactId>
+    <scope>provided</scope>
+</dependency>
+
+<!-- Import the JPA API, we use provided scope as the API is included in
+JBoss AS 7 -->
+
+<!-- Import the EJB API, we use provided scope as the API is included in
+JBoss AS 7 -->
+<dependency>
+    <groupId>org.jboss.spec.javax.ejb</groupId>
+    <artifactId>jboss-ejb-api_3.1_spec</artifactId>
+    <scope>provided</scope>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/javax.persistence/persistence-api -->
+<dependency>
+    <groupId>javax.persistence</groupId>
+    <artifactId>persistence-api</artifactId>
+    <version>1.0.2</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.hibernate.javax.persistence/hibernate-jpa-2.0-api -->
+<!--        <dependency>
+            <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.0-api</artifactId>
+            <version>1.0.1.Final</version>
+        </dependency>-->
+
+
+<!-- JSR-303 (Bean Validation) Implementation -->
+<!-- Provides portable constraints such as @Email -->
+<!-- Hibernate Validator is shipped in JBoss AS 7 -->
+<dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate-validator</artifactId>
+    <scope>provided</scope>
+    <exclusions>
+        <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </exclusion>
+    </exclusions>
+</dependency>
+
+<!-- Import the JSF API, we use provided scope as the API is included in
+JBoss AS 7 -->
+<dependency>
+    <groupId>org.jboss.spec.javax.faces</groupId>
+    <artifactId>jboss-jsf-api_2.1_spec</artifactId>
+    <scope>provided</scope>
+</dependency>
+
+<!-- Now we declare any tools needed -->
+
+<!-- Annotation processor to generate the JPA 2.0 metamodel classes for
+typesafe criteria queries -->
+<dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate-jpamodelgen</artifactId>
+    <scope>provided</scope>
+</dependency>
+
+<!-- Annotation processor that raising compilation errors whenever constraint
+annotations are incorrectly used. -->
+<dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate-validator-annotation-processor</artifactId>
+    <scope>provided</scope>
+</dependency>
+
+<!-- Needed for running tests (you may also use TestNG) -->
+<dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <scope>test</scope>
+</dependency>
+
+<!-- Optional, but highly recommended -->
+<!-- Arquillian allows you to test enterprise code such as EJBs and Transactional(JTA)
+JPA from JUnit/TestNG -->
+<dependency>
+    <groupId>org.jboss.arquillian.junit</groupId>
+    <artifactId>arquillian-junit-container</artifactId>
+    <scope>test</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.jboss.arquillian.protocol</groupId>
+    <artifactId>arquillian-protocol-servlet</artifactId>
+    <scope>test</scope>
+</dependency>
+<!-- https://mvnrepository.com/artifact/javax/javaee-api -->
+<dependency>
+    <groupId>javax</groupId>
+    <artifactId>javaee-api</artifactId>
+    <version>7.0</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
+<dependency>
+    <groupId>commons-fileupload</groupId>
+    <artifactId>commons-fileupload</artifactId>
+    <version>1.3.2</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+<dependency>
+    <groupId>commons-io</groupId>
+    <artifactId>commons-io</artifactId>
+    <version>2.5</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>6.0.5</version>
+</dependency>
+-->
+<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+<dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>jstl</artifactId>
+    <version>1.2</version>
+</dependency>
+
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-api</artifactId>
+    <version>1.7.5</version>
+</dependency>
+<dependency>
+    <groupId>org.jboss.modules</groupId>
+    <artifactId>jboss-modules</artifactId>
+    <version>1.5.1.Final</version>
+</dependency>
+<!-- simple to use the cache -->
+<dependency>
+    <groupId>com.google.guava</groupId>
+    <artifactId>guava</artifactId>
+    <version>14.0.1</version>
+    <scope>compile</scope>
+</dependency>
+<dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate-validator</artifactId>
+    <version>4.3.0.Final</version>
+</dependency>
+</dependencies>
+    
+</project>

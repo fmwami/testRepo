@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.hibernate:hibernate-validator-annotation-processor:unknown">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-validator-annotation-processor/unknown/hibernate-validator-annotation-processor-unknown.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-validator-annotation-processor/unknown/hibernate-validator-annotation-processor-unknown-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-validator-annotation-processor/unknown/hibernate-validator-annotation-processor-unknown-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

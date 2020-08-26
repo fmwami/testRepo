@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.jboss.remoting:jboss-remoting:5.0.0.Beta18">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/jboss/remoting/jboss-remoting/5.0.0.Beta18/jboss-remoting-5.0.0.Beta18.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/jboss/remoting/jboss-remoting/5.0.0.Beta18/jboss-remoting-5.0.0.Beta18-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/jboss/remoting/jboss-remoting/5.0.0.Beta18/jboss-remoting-5.0.0.Beta18-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
